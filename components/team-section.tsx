@@ -62,15 +62,17 @@ export function TeamSection() {
         </div>
 
         {/* About text */}
-        <div className="mx-auto mb-20 max-w-2xl text-center">
+        <div className="mx-auto mb-20 max-w-2xl text-left">
           <p className="font-serif text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
-            Casa Vacia nacio en una casa vacia. Un lugar simple y deshabitado.
-            Un espacio donde los ecos resuenan y las historias olvidadas vuelven a
-            despertar, buscando ser contadas.
+            Casa Vacía es un estudio creativo dedicado al desarrollo de cine de autor y género.
+            Acompañamos proyectos desde su gestación, explorando su universo narrativo y estético con profundidad.
           </p>
           <p className="mt-6 font-serif text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
-            Aqui desarrollamos historias en silencio y dejamos que los espacios hablen.
-            Porque hay memorias que solo pueden emerger entre las paredes vacias.
+            Creemos en procesos que respetan el tiempo de las historias y en una mirada que pone en el centro la atmósfera, la memoria y el espacio.
+            Nuestro trabajo combina desarrollo conceptual, construcción de identidad visual y acompañamiento creativo.
+          </p>
+          <p className="mt-6 font-serif text-base font-light leading-relaxed text-muted-foreground sm:text-lg">
+            Más que producir imágenes, buscamos crear mundos.
           </p>
         </div>
 

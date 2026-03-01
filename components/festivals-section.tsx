@@ -1,11 +1,11 @@
 export function FestivalsSection() {
   const festivals = [
-    { name: "Cannes", subtitle: "Film Festival" },
-    { name: "Sundance", subtitle: "Institute" },
-    { name: "Berlin", subtitle: "International" },
-    { name: "Venice", subtitle: "Biennale" },
-    { name: "Toronto", subtitle: "TIFF" },
-    { name: "San Sebastian", subtitle: "Zinemaldia" },
+    { name: "Fantastic", subtitle: "Nekyia" },
+    { name: "Mar del Plata", subtitle: "Lujuria" },
+    { name: "BioBio", subtitle: "Nekyia" },
+    { name: "Rojo Sangre", subtitle: "Lujuria" },
+    { name: "MarplaLab", subtitle: "Nekyia" },
+    { name: "VentanaSur", subtitle: "Festivales" },
   ]
 
   return (
