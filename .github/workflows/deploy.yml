@@ -26,8 +26,8 @@ jobs:
           script: |
             cd /srv/casa-vacia
 
-            # Detener contenedores actuales
-            docker compose down
+            # Detener y eliminar contenedores, redes, volúmenes
+            docker compose down --remove-orphans
 
             # Configurar Git
             git config --global user.email "xaveeg@gmail.com"
@@ -37,8 +37,8 @@ jobs:
             # Actualizar código
             git pull origin main
 
-            # Construir y levantar con caché (más eficiente)
-            docker compose up -d --build
+            # Construir y levantar
+            docker compose up -d --build --force-recreate
 
-            # Limpiar imágenes huérfanas solo si es necesario
+            # Limpiar imágenes huérfanas
             docker image prune -f
