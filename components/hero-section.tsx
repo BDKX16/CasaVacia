@@ -55,7 +55,7 @@ export function HeroSection() {
           id: i,
           x: Math.random() * 100,
           y: Math.random() * 100,
-          size: isEmber ? Math.random() * 3 + 2 : Math.random() * 4 + 1,
+          size: isEmber ? Math.random() * 2 + 1 : Math.random() * 4 + 1,
           speedY: Math.random() * 15 + 10,
           speedX: (Math.random() - 0.5) * 5,
           delay: Math.random() * 20,
@@ -141,17 +141,16 @@ export function HeroSection() {
                   width: `${particle.size}px`,
                   height: `${particle.size}px`,
                   backgroundColor: particle.isEmber 
-                    ? `rgba(255, ${150 + particle.glowIntensity! * 50}, 0, 1)` 
-                    : 'rgba(255, 255, 255, 0.8)',
+                    ? `rgba(255, ${60 + (particle.glowIntensity! - 0.5) * 80}, 0, 1)` 
+                    : 'rgba(160, 160, 160, 0.7)',
                   filter: 'blur(0.5px)',
                   boxShadow: particle.isEmber
-                    ? `0 0 ${particle.size * 4}px rgba(255, 120, 0, ${particle.glowIntensity}), 
-                       0 0 ${particle.size * 8}px rgba(255, 80, 0, ${particle.glowIntensity! * 0.6})`
-                    : '0 0 4px rgba(255, 255, 255, 0.6)',
+                    ? `0 0 ${particle.size * 5}px rgba(255, 50, 0, ${particle.glowIntensity}), 
+                       0 0 ${particle.size * 10}px rgba(255, 20, 0, ${particle.glowIntensity! * 0.6})`
+                    : '0 0 3px rgba(180, 180, 180, 0.5)',
                   animation: particle.isEmber
-                    ? `ashfall ${particle.speedY}s linear ${particle.delay}s infinite, ember-pulse ${Math.random() * 1.5 + 0.5}s ease-in-out infinite`
-                    : `ashfall ${particle.speedY}s linear ${particle.delay}s infinite`,
-                  animationTimingFunction: 'ease-in-out',
+                    ? `ashfall ${particle.speedY}s ease-in-out ${particle.delay}s infinite, ember-pulse ${Math.random() * 1.5 + 0.5}s ease-in-out infinite`
+                    : `ashfall ${particle.speedY}s ease-in-out ${particle.delay}s infinite`,
                   ['--drift' as string]: `${drift}px`,
                   zIndex: 30,
                 }}
