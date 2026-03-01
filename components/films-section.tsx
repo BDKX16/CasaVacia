@@ -22,14 +22,6 @@ const films: Film[] = [
     link: "https://youtu.be/2PDljuN3eQk?si=kXzgVZ46r7ZjuNLh",
   },
   {
-    title: "ÉXODOS",
-    status: "EN DESARROLLO",
-    image: "/images/film-2.jpg",
-    description:
-      "Próximamente.",
-    year: "2025",
-  },
-  {
     title: "SERIE LIMINAL",
     status: "EN DISTRIBUCIÓN",
     image: "/images/film-3.jpg",
@@ -47,6 +39,14 @@ const films: Film[] = [
     year: "2022",
     recorrido: "Festival Internacional de Cine de Mar del Plata 2022 - Buenos Aires Rojo Sangre 2022 - Servest FilmFest 2022 - CinemaDiva 2023",
     link: "https://www.youtube.com/watch?v=DgV2BySW-pU",
+  },
+  {
+    title: "ÉXODOS",
+    status: "EN DESARROLLO",
+    image: "/images/film-2.jpg",
+    description:
+      "Próximamente.",
+    year: "2025",
   },
 ]
 
@@ -69,73 +69,76 @@ export function FilmsSection() {
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         {/* Section title */}
         <div className="mb-16 flex flex-col items-center">
-          <h2 className="font-serif text-2xl font-light tracking-[0.3em] text-amber-100/90 sm:text-3xl uppercase">
+          <h2 className="font-serif text-2xl font-light tracking-[0.3em] text-white sm:text-3xl uppercase">
             PROYECTOS
           </h2>
         </div>
 
         {/* Film grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">{
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 items-stretch">{
           films.map((film) => (
             <article
               key={film.title}
-              className="film-card group cursor-pointer"
+              className="film-card group cursor-pointer flex flex-col h-full"
             >
-              {/* Image container with vintage texture */}
-              <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-amber-900/30 shadow-2xl">
-                {/* Card texture background */}
-                <div 
-                  className="absolute inset-0 z-0 opacity-20"
-                  style={{
-                    backgroundImage: "url('/images/Imag Pared.png')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                />
+              {/* Card container with texture background */}
+              <div 
+                className="relative flex flex-col h-full rounded-sm border border-white/10 shadow-2xl overflow-hidden"
+                style={{
+                  backgroundImage: "url('/images/Textura gral.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                {/* Tinted overlay for card background */}
+                <div className="absolute inset-0 bg-black/75 z-0" />
                 
-                <Image
-                  src={film.image}
-                  alt={`Poster de ${film.title}`}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105 sepia"
-                  style={{
-                    filter: "sepia(0.6) contrast(1.1) brightness(0.8)",
-                  }}
-                />
-                
-                {/* Vintage overlay with texture */}
-                <div className="absolute inset-0 bg-gradient-to-b from-amber-950/40 via-transparent to-black/60 transition-opacity duration-500 group-hover:from-amber-950/20" />
-                
-                {/* Vignette effect */}
-                <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.8)]" />
-              </div>
+                {/* Image container */}
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <Image
+                    src={film.image}
+                    alt={`Poster de ${film.title}`}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    style={{
+                      filter: "sepia(0.5) contrast(1.1) brightness(0.75)",
+                    }}
+                  />
+                  
+                  {/* Vintage overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 transition-opacity duration-500 group-hover:from-black/20" />
+                  
+                  {/* Vignette effect */}
+                  <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.8)]" />
+                </div>
 
-              {/* Film info */}
-              <div className="mt-5 px-1">
-                <h3 className="font-serif text-xl font-semibold tracking-wide text-amber-100/90">
-                  {film.title}
-                </h3>
-                <p className="mt-1 text-[10px] font-medium tracking-[0.3em] text-amber-600/80 uppercase">
-                  {film.status}
-                </p>
-                <p className="mt-3 font-serif text-sm font-light leading-relaxed text-amber-200/70">
-                  {film.description}
-                </p>
-                {film.recorrido && (
-                  <p className="mt-3 text-[11px] font-light leading-relaxed text-amber-300/60">
-                    <span className="font-medium tracking-wider">Recorrido:</span> {film.recorrido}
+                {/* Film info with consistent padding */}
+                <div className="relative z-10 flex flex-col p-5 h-[280px]">
+                  <h3 className="font-serif text-xl font-semibold tracking-wide text-white mb-2 line-clamp-1">
+                    {film.title}
+                  </h3>
+                  <p className="text-[10px] font-medium tracking-[0.3em] text-white/60 uppercase mb-3">
+                    {film.status}
                   </p>
-                )}
-                {film.link && (
-                  <a 
-                    href={film.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-block text-[11px] font-medium tracking-wider text-amber-500/90 underline hover:text-amber-400/90 transition-colors"
-                  >
-                    Ver Proyecto →
-                  </a>
-                )}
+                  <p className="font-serif text-sm font-light leading-relaxed text-white/80 mb-3 line-clamp-3">
+                    {film.description}
+                  </p>
+                  {film.recorrido && (
+                    <p className="text-[11px] font-light leading-relaxed text-white/50 mb-3 line-clamp-2">
+                      <span className="font-medium tracking-wider">Recorrido:</span> {film.recorrido}
+                    </p>
+                  )}
+                  {film.link && (
+                    <a 
+                      href={film.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-block text-[11px] font-medium tracking-wider text-white/70 underline hover:text-white transition-colors mt-auto"
+                    >
+                      Ver Proyecto →
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}

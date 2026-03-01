@@ -126,8 +126,8 @@
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 .film-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px oklch(0 0 0 / 0.5);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(217, 119, 6, 0.2);
 }
 
 /* Smooth scroll */

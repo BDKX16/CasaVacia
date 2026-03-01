@@ -203,7 +203,7 @@ export function HeroSection() {
             opacity: Math.max(0, 1 - scrollY / 450),
           }}
         >
-          Desarrollamos cine desde los espacios que permanecen.
+          Más que producir imágenes, buscamos crear mundos.
         </p>
 
         {/* Scroll indicator */}
