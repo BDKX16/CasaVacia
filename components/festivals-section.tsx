@@ -2,14 +2,15 @@ import Image from "next/image"
 
 export function FestivalsSection() {
   const festivals = [
-    { name: "FiciProx", subtitle: "Fresno", logo: "/festivales/FRESNO - Festival FiciProx.png" },
+    { name: "Fantastic", subtitle: "Nekyia", logo: "/festivales/NEKYIA - Fantastic .png" },
+    { name: "BioBio", subtitle: "Nekyia", logo: "/festivales/NEKYIA - BioBio.png" },
+    { name: "Marpla", subtitle: "Nekyia", logo: "/festivales/Marpla PNG negro.png" },
+    { name: "Fantastika", subtitle: "Nekyia", logo: "/festivales/Nekyia - Fantastika.png" },
     { name: "Mar del Plata", subtitle: "Lujuria", logo: "/festivales/LUJURIA - Festival Internacional de cine de Mar del Plata - 2022.png" },
     { name: "Rojo Sangre", subtitle: "Lujuria", logo: "/festivales/LUJURIA - Festival Buenos Aires Rojo Sangre.png" },
     { name: "Cinema Diva", subtitle: "Lujuria", logo: "/festivales/LUJURIA - Festival Cinema Diva.png" },
     { name: "Servest", subtitle: "Lujuria", logo: "/festivales/LUJURIA - Festival Servest Film Festival - 2022.png" },
-    { name: "Fantastic", subtitle: "Nekyia", logo: "/festivales/NEKYIA - Fantastic .png" },
-    { name: "BioBio", subtitle: "Nekyia", logo: "/festivales/NEKYIA - BioBio.png" },
-    { name: "Fantastika", subtitle: "Nekyia", logo: "/festivales/Nekyia - Fantastika.png" },
+    { name: "FiciProx", subtitle: "Fresno", logo: "/festivales/FRESNO - Festival FiciProx.png" },
   ]
 
   return (
@@ -20,7 +21,7 @@ export function FestivalsSection() {
         </p>
 
         {/* Festival logos as text */}
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9">
           {festivals.map((festival) => (
             <div
               key={festival.name}
