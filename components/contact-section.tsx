@@ -25,16 +25,18 @@ export function ContactSection() {
           </p>
 
           <a
-            href="mailto:contacto@casavacia.com"
+            href="mailto:casavaciaestudio@gmail.com"
             className="mt-8 inline-block font-serif text-lg font-semibold tracking-wide text-primary underline decoration-primary/30 underline-offset-4 transition-all duration-300 hover:decoration-primary sm:text-xl"
           >
-            contacto@casavacia.com
+            casavaciaestudio@gmail.com
           </a>
 
           {/* Social links */}
           <div className="mt-12 flex items-center justify-center gap-8">
             <a
-              href="#"
+              href="https://www.instagram.com/casavacia.estudio?igsh=MWtqeWYweDc0NTJwYw%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[10px] tracking-[0.3em] text-muted-foreground transition-colors duration-300 hover:text-primary"
               aria-label="Instagram"
             >
@@ -42,15 +44,7 @@ export function ContactSection() {
             </a>
             <span className="h-3 w-px bg-border" />
             <a
-              href="#"
-              className="text-[10px] tracking-[0.3em] text-muted-foreground transition-colors duration-300 hover:text-primary"
-              aria-label="Vimeo"
-            >
-              VIMEO
-            </a>
-            <span className="h-3 w-px bg-border" />
-            <a
-              href="#"
+              href="mailto:casavaciaestudio@gmail.com"
               className="text-[10px] tracking-[0.3em] text-muted-foreground transition-colors duration-300 hover:text-primary"
               aria-label="Correo electronico"
             >
