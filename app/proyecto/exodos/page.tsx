@@ -52,7 +52,7 @@ export default function ExodosPage() {
             {/* Image */}
             <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-white/10 shadow-2xl">
               <Image
-                src="/images/film-2.jpg"
+                src="/images/Exodos.png"
                 alt="Poster de ÉXODOS"
                 fill
                 className="object-cover"

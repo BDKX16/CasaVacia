@@ -52,7 +52,7 @@ export default function LujuriaPage() {
             {/* Image */}
             <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-white/10 shadow-2xl">
               <Image
-                src="/images/film-1.jpg"
+                src="/images/Lujuria.png"
                 alt="Poster de LUJURIA"
                 fill
                 className="object-cover"

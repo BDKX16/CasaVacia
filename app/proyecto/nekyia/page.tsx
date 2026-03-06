@@ -52,7 +52,7 @@ export default function NekyiaPage() {
             {/* Image */}
             <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-white/10 shadow-2xl">
               <Image
-                src="/images/film-1.jpg"
+                src="/images/Nekyia.png"
                 alt="Poster de NEKYIA"
                 fill
                 className="object-cover"

@@ -52,7 +52,7 @@ export default function SerieLiminalPage() {
             {/* Image */}
             <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-white/10 shadow-2xl">
               <Image
-                src="/images/film-3.jpg"
+                src="/images/Liminal.png"
                 alt="Poster de SERIE LIMINAL"
                 fill
                 className="object-cover"
