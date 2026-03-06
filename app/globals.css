@@ -127,7 +127,7 @@
 }
 .film-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(217, 119, 6, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 /* Smooth scroll */
@@ -186,6 +186,19 @@ html {
   50% {
     opacity: 1;
     filter: brightness(1.4) blur(0.5px);
+  }
+}
+
+/* Movimiento lento de neblina */
+@keyframes fog-drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30px, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
 

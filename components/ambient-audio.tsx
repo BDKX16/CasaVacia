@@ -64,137 +64,61 @@ export function AmbientAudio() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [hasInteracted, setHasInteracted] = useState(false)
   const [fadeVisible, setFadeVisible] = useState(true)
-  const audioContextRef = useRef<AudioContext | null>(null)
-  const gainNodeRef = useRef<GainNode | null>(null)
-  const oscillatorsRef = useRef<OscillatorNode[]>([])
-  const noiseSourceRef = useRef<AudioBufferSourceNode | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const [audioFile] = useState(() => {
+    // Seleccionar aleatoriamente uno de los dos archivos de audio
+    const random = Math.random()
+    return random < 0.5 ? '/sounds/Viento 1.mp3' : '/sounds/Viento 2.mp3'
+  })
 
-  const createAmbientDrone = useCallback(() => {
-    const ctx = new AudioContext()
-    audioContextRef.current = ctx
+  // Inicializar el audio
+  useEffect(() => {
+    const audio = new Audio(audioFile)
+    audio.loop = true
+    audio.volume = 0
+    audioRef.current = audio
 
-    const masterGain = ctx.createGain()
-    masterGain.gain.setValueAtTime(0, ctx.currentTime)
-    masterGain.connect(ctx.destination)
-    gainNodeRef.current = masterGain
-
-    // Deep bass drone
-    const osc1 = ctx.createOscillator()
-    osc1.type = "sine"
-    osc1.frequency.setValueAtTime(55, ctx.currentTime) // A1
-    const gain1 = ctx.createGain()
-    gain1.gain.setValueAtTime(0.12, ctx.currentTime)
-    osc1.connect(gain1)
-    gain1.connect(masterGain)
-    osc1.start()
-
-    // Sub harmonic
-    const osc2 = ctx.createOscillator()
-    osc2.type = "sine"
-    osc2.frequency.setValueAtTime(82.4, ctx.currentTime) // E2
-    const gain2 = ctx.createGain()
-    gain2.gain.setValueAtTime(0.06, ctx.currentTime)
-    osc2.connect(gain2)
-    gain2.connect(masterGain)
-    osc2.start()
-
-    // Slow LFO modulation on bass
-    const lfo = ctx.createOscillator()
-    lfo.type = "sine"
-    lfo.frequency.setValueAtTime(0.08, ctx.currentTime)
-    const lfoGain = ctx.createGain()
-    lfoGain.gain.setValueAtTime(3, ctx.currentTime)
-    lfo.connect(lfoGain)
-    lfoGain.connect(osc1.frequency)
-    lfo.start()
-
-    // Eerie high partial
-    const osc3 = ctx.createOscillator()
-    osc3.type = "triangle"
-    osc3.frequency.setValueAtTime(220, ctx.currentTime) // A3
-    const gain3 = ctx.createGain()
-    gain3.gain.setValueAtTime(0.015, ctx.currentTime)
-    // Slow tremolo on the high partial
-    const lfo2 = ctx.createOscillator()
-    lfo2.type = "sine"
-    lfo2.frequency.setValueAtTime(0.15, ctx.currentTime)
-    const lfo2Gain = ctx.createGain()
-    lfo2Gain.gain.setValueAtTime(0.01, ctx.currentTime)
-    lfo2.connect(lfo2Gain)
-    lfo2Gain.connect(gain3.gain)
-    lfo2.start()
-    osc3.connect(gain3)
-    gain3.connect(masterGain)
-    osc3.start()
-
-    // Filtered noise for texture (wind-like)
-    const bufferSize = ctx.sampleRate * 4
-    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate)
-    const output = noiseBuffer.getChannelData(0)
-    for (let i = 0; i < bufferSize; i++) {
-      output[i] = Math.random() * 2 - 1
+    return () => {
+      audio.pause()
+      audio.src = ''
     }
-    const noiseSource = ctx.createBufferSource()
-    noiseSource.buffer = noiseBuffer
-    noiseSource.loop = true
-    const noiseFilter = ctx.createBiquadFilter()
-    noiseFilter.type = "lowpass"
-    noiseFilter.frequency.setValueAtTime(200, ctx.currentTime)
-    noiseFilter.Q.setValueAtTime(1, ctx.currentTime)
-    const noiseGain = ctx.createGain()
-    noiseGain.gain.setValueAtTime(0.04, ctx.currentTime)
-    noiseSource.connect(noiseFilter)
-    noiseFilter.connect(noiseGain)
-    noiseGain.connect(masterGain)
-    noiseSource.start()
-
-    oscillatorsRef.current = [osc1, osc2, osc3, lfo, lfo2]
-    noiseSourceRef.current = noiseSource
-
-    // Fade in
-    masterGain.gain.linearRampToValueAtTime(0.5, ctx.currentTime + 3)
-  }, [])
+  }, [audioFile])
 
   const toggleAudio = useCallback(() => {
+    const audio = audioRef.current
+    if (!audio) return
+
     if (!hasInteracted) {
       setHasInteracted(true)
-      createAmbientDrone()
-      setIsPlaying(true)
-      return
     }
-
-    const ctx = audioContextRef.current
-    const gain = gainNodeRef.current
-    if (!ctx || !gain) return
 
     if (isPlaying) {
       // Fade out
-      gain.gain.linearRampToValueAtTime(0, ctx.currentTime + 1.5)
+      const fadeOut = setInterval(() => {
+        if (audio.volume > 0.05) {
+          audio.volume = Math.max(0, audio.volume - 0.05)
+        } else {
+          audio.volume = 0
+          audio.pause()
+          clearInterval(fadeOut)
+        }
+      }, 50)
       setIsPlaying(false)
     } else {
-      if (ctx.state === "suspended") {
-        ctx.resume()
-      }
       // Fade in
-      gain.gain.linearRampToValueAtTime(0.5, ctx.currentTime + 2)
+      audio.volume = 0
+      audio.play().catch(console.error)
+      const fadeIn = setInterval(() => {
+        if (audio.volume < 0.45) {
+          audio.volume = Math.min(0.5, audio.volume + 0.05)
+        } else {
+          audio.volume = 0.5
+          clearInterval(fadeIn)
+        }
+      }, 50)
       setIsPlaying(true)
     }
-  }, [hasInteracted, isPlaying, createAmbientDrone])
-
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      oscillatorsRef.current.forEach((osc) => {
-        try {
-          osc.stop()
-        } catch {}
-      })
-      try {
-        noiseSourceRef.current?.stop()
-      } catch {}
-      audioContextRef.current?.close()
-    }
-  }, [])
+  }, [hasInteracted, isPlaying])
 
   // Hide the initial prompt after a delay
   useEffect(() => {

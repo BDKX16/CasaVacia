@@ -16,7 +16,7 @@ const films: Film[] = [
   {
     title: "NEKYIA",
     status: "EN DESARROLLO",
-    image: "/images/film-1.jpg",
+    image: "/images/Nekyia.png",
     description:
       "Jeremías, un joven de 27 años consumido por la culpa de una infancia violenta, se arroja al vacío desde un noveno piso en busca del descanso eterno. Pero la Muerte, una criatura cubierta de pelaje oscuro y grandes cuernos, le niega el olvido y lo conduce a un territorio donde sus recuerdos toman forma: su padre como hombre zorro, su hermana como niña conejo y un niño gato que encarna lo que fue. Para no quedar atrapado en este infierno, Jeremías deberá enfrentar aquello que aún no pudo perdonar.",
     year: "2025",
@@ -27,7 +27,7 @@ const films: Film[] = [
   {
     title: "SERIE LIMINAL",
     status: "EN DISTRIBUCIÓN",
-    image: "/images/film-3.jpg",
+    image: "/images/Liminal.png",
     description:
       "Liminal es una serie de 3 cortometrajes (0000, 0045, 1046) donde se explora la soledad de espacios abandonados en primera persona.",
     year: "2024",
@@ -37,7 +37,7 @@ const films: Film[] = [
   {
     title: "LUJURIA",
     status: "FINALIZADO",
-    image: "/images/film-1.jpg",
+    image: "/images/Lujuria.png",
     description:
       "Una mujer recién llegada al infierno se despierta en una mansión para conocer los castigos de los pecadores carnales de la lujuria.",
     year: "2022",
@@ -48,7 +48,7 @@ const films: Film[] = [
   {
     title: "ÉXODOS",
     status: "EN DESARROLLO",
-    image: "/images/film-2.jpg",
+    image: "/images/Exodos.png",
     description:
       "Próximamente.",
     year: "2025",
@@ -91,11 +91,12 @@ export function FilmsSection() {
               <article className="flex flex-col h-full">
                 {/* Card container with texture background */}
                 <div 
-                  className="relative flex flex-col h-full rounded-sm border border-white/10 shadow-2xl overflow-hidden"
+                  className="relative flex flex-col h-full rounded-sm overflow-hidden"
                   style={{
                     backgroundImage: "url('/images/Textura gral.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
+                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 10px 20px -8px rgba(0, 0, 0, 0.8)",
                   }}
                 >
                   {/* Tinted overlay for card background */}
@@ -114,7 +115,7 @@ export function FilmsSection() {
                     />
                     
                     {/* Vintage overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 transition-opacity duration-500 group-hover:from-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 transition-opacity duration-500 group-hover:from-black/60" />
                     
                     {/* Vignette effect */}
                     <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(0,0,0,0.8)]" />

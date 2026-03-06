@@ -127,6 +127,23 @@ export function HeroSection() {
           />
         </div>
 
+        {/* Layer 4: Nubes/Neblina flotante - movimiento muy lento por encima */}
+        <div 
+          className="absolute inset-0 will-change-transform opacity-30"
+          style={{
+            transform: `translateY(${scrollY * 0.1}px) translateX(${mouseX * 5}px) translateY(${mouseY * 5}px)`,
+            animation: 'fog-drift 35s ease-in-out infinite',
+          }}
+        >
+          <Image
+            src="/images/Nubes-neblina.png"
+            alt=""
+            fill
+            className="object-cover object-center scale-110"
+            quality={100}
+          />
+        </div>
+
         {/* Partículas de ceniza flotante */}
         <div className="absolute inset-0 pointer-events-none z-30">
           {particles.map((particle) => {
