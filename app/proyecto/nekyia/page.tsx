@@ -1,6 +1,25 @@
 import { Navbar } from "@/components/navbar"
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'NEKYIA | Proyecto en Desarrollo',
+  description: 'Jeremías, un joven de 27 años consumido por la culpa de una infancia violenta, se arroja al vacío desde un noveno piso en busca del descanso eterno. Un proyecto de cine de género y terror psicológico.',
+  keywords: ['Nekyia', 'cine de género', 'terror psicológico', 'cine fantástico', 'Casa Vacía', 'MarplaLab', 'BioBio', 'VentanaSur', 'FantasticLab'],
+  openGraph: {
+    title: 'NEKYIA | Proyecto en Desarrollo - Casa Vacía Estudio',
+    description: 'Un viaje al infierno psicológico donde los recuerdos toman forma animal. Proyecto en desarrollo de Casa Vacía Estudio.',
+    images: ['/images/Nekyia.png'],
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'NEKYIA | Proyecto en Desarrollo',
+    description: 'Un viaje al infierno psicológico donde los recuerdos toman forma animal.',
+    images: ['/images/Nekyia.png'],
+  },
+}
 
 export default function NekyiaPage() {
   return (

@@ -1,6 +1,19 @@
 import { Navbar } from "@/components/navbar"
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'ÉXODOS | Proyecto en Desarrollo',
+  description: 'Nuevo proyecto en desarrollo de Casa Vacía Estudio. Más información próximamente.',
+  keywords: ['Éxodos', 'Exodos', 'cine de autor', 'Casa Vacía', 'película en desarrollo'],
+  openGraph: {
+    title: 'ÉXODOS | Proyecto en Desarrollo - Casa Vacía Estudio',
+    description: 'Nuevo proyecto en desarrollo. Próximamente más información.',
+    images: ['/images/Exodos.png'],
+    type: 'article',
+  },
+}
 
 export default function ExodosPage() {
   return (

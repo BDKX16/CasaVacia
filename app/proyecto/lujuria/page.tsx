@@ -1,6 +1,19 @@
 import { Navbar } from "@/components/navbar"
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'LUJURIA | Película Finalizada',
+  description: 'Una mujer recién llegada al infierno se despierta en una mansión para conocer los castigos de los pecadores carnales de la lujuria. Festival Internacional de Mar del Plata 2022.',
+  keywords: ['Lujuria', 'cortometraje', 'terror', 'Mar del Plata 2022', 'Rojo Sangre', 'Casa Vacía', 'cine de horror'],
+  openGraph: {
+    title: 'LUJURIA | Película Finalizada - Casa Vacía Estudio',
+    description: 'Cortometraje de terror sobre los castigos de los pecadores de la lujuria. Selección oficial Mar del Plata 2022.',
+    images: ['/images/Lujuria.png'],
+    type: 'video.movie',
+  },
+}
 
 export default function LujuriaPage() {
   return (

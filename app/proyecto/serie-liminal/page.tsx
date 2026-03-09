@@ -1,6 +1,19 @@
 import { Navbar } from "@/components/navbar"
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'SERIE LIMINAL | En Distribución',
+  description: 'Liminal es una serie de 3 cortometrajes (0000, 0045, 1046) donde se explora la soledad de espacios abandonados en primera persona.',
+  keywords: ['Serie Liminal', 'cortometrajes', 'espacios liminales', 'cine experimental', 'Casa Vacía', 'espacios abandonados'],
+  openGraph: {
+    title: 'SERIE LIMINAL | En Distribución - Casa Vacía Estudio',
+    description: 'Una serie de 3 cortometrajes que explora la soledad de espacios abandonados en primera persona.',
+    images: ['/images/Liminal.png'],
+    type: 'article',
+  },
+}
 
 export default function SerieLiminalPage() {
   return (
