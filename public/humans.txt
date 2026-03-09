@@ -1,0 +1,18 @@
+# Humans.txt - Los humanos detrás de Casa Vacía Estudio
+
+/* EQUIPO */
+Estudio: Casa Vacía Estudio
+Sitio: https://vaciaestudios.com
+Email: casavaciaestudio@gmail.com
+Instagram: @casavacia.estudio
+Ubicación: Argentina
+
+/* SITIO */
+Última actualización: 2026/03/09
+Lenguaje: Español
+Doctype: HTML5
+Tecnología: Next.js, React, TypeScript, Tailwind CSS
+
+/* AGRADECIMIENTOS */
+A todos los festivales que han apoyado nuestros proyectos.
+A los colaboradores y el equipo que hace posible cada historia.
