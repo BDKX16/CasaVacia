@@ -6,6 +6,7 @@ export function FestivalsSection() {
     { name: "BioBio", subtitle: "Nekyia", logo: "/festivales/NEKYIA - BioBio.png" },
     { name: "Marpla", subtitle: "Nekyia", logo: "/festivales/Marpla PNG negro.png" },
     { name: "Fantastika", subtitle: "Nekyia", logo: "/festivales/Nekyia - Fantastika.png" },
+    { name: "Rally 2026", subtitle: "Nekyia", logo: "/festivales/rally-2026.png" },
     { name: "Mar del Plata", subtitle: "Lujuria", logo: "/festivales/LUJURIA - Festival Internacional de cine de Mar del Plata - 2022.png" },
     { name: "Rojo Sangre", subtitle: "Lujuria", logo: "/festivales/LUJURIA - Festival Buenos Aires Rojo Sangre.png" },
     { name: "Cinema Diva", subtitle: "Lujuria", logo: "/festivales/LUJURIA - Festival Cinema Diva.png" },
@@ -21,7 +22,7 @@ export function FestivalsSection() {
         </p>
 
         {/* Festival logos as text */}
-        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-9">
+        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-10">
           {festivals.map((festival) => (
             <div
               key={festival.name}
